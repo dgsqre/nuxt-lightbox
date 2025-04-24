@@ -30,9 +30,7 @@ export default defineNuxtModule<ModuleOptions>({
     });
     addImportsDir(resolver.resolve("runtime/composables"));
 
-    const stylePath = isDev
-      ? resolver.resolve("runtime/styles/index.scss")
-      : resolver.resolve("../dist/runtime/styles/index.css");
+    const stylePath = resolver.resolve("../dist/runtime/styles/index.css");
 
     nuxt.options.css.push(stylePath);
   },
