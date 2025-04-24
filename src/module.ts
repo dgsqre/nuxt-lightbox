@@ -18,13 +18,22 @@ export default defineNuxtModule<ModuleOptions>({
   setup(_options, nuxt) {
     const resolver = createResolver(import.meta.url);
 
+    const isDev = nuxt.options.dev;
+
+    const componentPath = isDev
+      ? resolver.resolve("runtime/vue-easy-lightbox.tsx")
+      : resolver.resolve("../dist/runtime/vue-easy-lightbox.js");
+
     addComponent({
       name: "VueEasyLightbox",
       filePath: resolver.resolve("runtime/vue-easy-lightbox.tsx"),
     });
-
     addImportsDir(resolver.resolve("runtime/composables"));
 
-    nuxt.options.css.push(resolver.resolve("../dist/runtime/styles/index.css"));
+    const stylePath = isDev
+      ? resolver.resolve("runtime/styles/index.scss")
+      : resolver.resolve("../dist/runtime/styles/index.css");
+
+    nuxt.options.css.push(stylePath);
   },
 });
