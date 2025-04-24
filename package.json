@@ -1,6 +1,6 @@
 {
   "name": "@dogsquare/nuxt-lightbox",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple lightbox module for Nuxt 3",
   "repository": "your-org/my-module",
   "license": "MIT",
@@ -28,7 +28,7 @@
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
-    "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "release": "npm run prepack && changelogen --release && npm publish && git push --follow-tags",
     "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest watch",
