@@ -1,11 +1,11 @@
-import { prefixCls } from '../constant'
-import { SetupContext } from 'vue'
+import type { SetupContext } from "vue";
+import { prefixCls } from "../constant";
 
 export const Description = (
   props: Record<string, unknown>,
-  { slots }: SetupContext
+  { slots }: SetupContext,
 ) => (
   <div class={`${prefixCls}-description`}>
-    {slots.default ? slots.default() : ''}
+    {slots.default ? slots.default() : ""}
   </div>
-)
+);

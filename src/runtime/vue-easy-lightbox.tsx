@@ -119,7 +119,7 @@ export default defineComponent({
     },
   },
   emits: {
-    hide: () => true,
+    "hide": () => true,
     /* eslint-disable @typescript-eslint/no-unused-vars */
     "on-error": (e: Event) => true,
     "on-prev": (oldIndex: number, newIndex: number) => true,
@@ -162,12 +162,14 @@ export default defineComponent({
           .map((img) => {
             if (typeof img === "string") {
               return { src: img };
-            } else if (isImg(img)) {
+            }
+            else if (isImg(img)) {
               return img;
             }
           })
           .filter(notEmpty);
-      } else if (isString(props.imgs)) {
+      }
+      else if (isString(props.imgs)) {
         return [{ src: props.imgs }];
       }
       return [];
@@ -212,7 +214,7 @@ export default defineComponent({
     // switching imgs manually
     const changeIndex = (
       newIndex: number,
-      emitsCallback?: (oldIdx: number, newIdx: number) => void
+      emitsCallback?: (oldIdx: number, newIdx: number) => void,
     ) => {
       const oldIndex = imgIndex.value;
 
@@ -268,7 +270,8 @@ export default defineComponent({
     const zoom = (newScale: number) => {
       if (Math.abs(1 - newScale) < 0.05) {
         newScale = 1;
-      } else if (Math.abs(imgState.maxScale - newScale) < 0.05) {
+      }
+      else if (Math.abs(imgState.maxScale - newScale) < 0.05) {
         newScale = imgState.maxScale;
       }
       imgWrapperState.lastScale = imgWrapperState.scale;
@@ -321,7 +324,7 @@ export default defineComponent({
     const { onMouseDown, onMouseMove, onMouseUp } = useMouse(
       imgWrapperState,
       status,
-      canMove
+      canMove,
     );
 
     const { onTouchStart, onTouchMove, onTouchEnd } = useTouch(
@@ -329,7 +332,7 @@ export default defineComponent({
       imgWrapperState,
       status,
       canMove,
-      () => !props.pinchDisabled
+      () => !props.pinchDisabled,
     );
 
     const onDblclick = () => {
@@ -337,20 +340,21 @@ export default defineComponent({
       if (imgWrapperState.scale !== imgState.maxScale) {
         imgWrapperState.lastScale = imgWrapperState.scale;
         imgWrapperState.scale = imgState.maxScale;
-      } else {
+      }
+      else {
         imgWrapperState.scale = imgWrapperState.lastScale;
       }
     };
 
     const onWheel = (e: WheelEvent) => {
       if (
-        status.loadError ||
-        status.gesturing ||
-        status.loading ||
-        status.dragging ||
-        status.wheeling ||
-        !props.scrollDisabled ||
-        props.zoomDisabled
+        status.loadError
+        || status.gesturing
+        || status.loading
+        || status.dragging
+        || status.wheeling
+        || !props.scrollDisabled
+        || props.zoomDisabled
       ) {
         return;
       }
@@ -363,7 +367,8 @@ export default defineComponent({
 
       if (e.deltaY < 0) {
         zoomIn();
-      } else {
+      }
+      else {
         zoomOut();
       }
     };
@@ -418,7 +423,7 @@ export default defineComponent({
           return;
         }
         changeIndex(newIndex);
-      }
+      },
     );
 
     watch(
@@ -438,7 +443,7 @@ export default defineComponent({
             else if (xDiff > tolerance) onPrev();
           }
         }
-      }
+      },
     );
 
     // init
@@ -454,18 +459,19 @@ export default defineComponent({
             nextTick(() => (status.loadError = true));
             return;
           }
-          imgIndex.value =
-            props.index >= len ? len - 1 : props.index < 0 ? 0 : props.index;
+          imgIndex.value
+            = props.index >= len ? len - 1 : props.index < 0 ? 0 : props.index;
 
           if (props.scrollDisabled) {
             disableScrolling();
           }
-        } else {
+        }
+        else {
           if (props.scrollDisabled) {
             enableScrolling();
           }
         }
-      }
+      },
     );
 
     const disableScrolling = () => {
@@ -493,22 +499,26 @@ export default defineComponent({
     });
 
     const renderLoading = () => {
-      return slots.loading ? (
-        slots.loading({
-          key: "loading",
-        })
-      ) : (
-        <ImgLoading key="img-loading" />
-      );
+      return slots.loading
+        ? (
+            slots.loading({
+              key: "loading",
+            })
+          )
+        : (
+            <ImgLoading key="img-loading" />
+          );
     };
     const renderOnError = () => {
-      return slots.onerror ? (
-        slots.onerror({
-          key: "onerror",
-        })
-      ) : (
-        <ImgOnError key="img-on-error" />
-      );
+      return slots.onerror
+        ? (
+            slots.onerror({
+              key: "onerror",
+            })
+          )
+        : (
+            <ImgOnError key="img-on-error" />
+          );
     };
 
     const renderDialog = () => {
@@ -529,13 +539,15 @@ export default defineComponent({
     };
 
     const renderSidebar = () => {
-      return slots.sidebar ? (
-        <div class={`${prefixCls}-sidebar`} style={imgWrapperStyle.value}>
-          {slots["sidebar"]()}
-        </div>
-      ) : (
-        false
-      );
+      return slots.sidebar
+        ? (
+            <div class={`${prefixCls}-sidebar`} style={imgWrapperStyle.value}>
+              {slots["sidebar"]()}
+            </div>
+          )
+        : (
+            false
+          );
     };
 
     const renderImgWrapper = () => {
@@ -570,7 +582,8 @@ export default defineComponent({
     const renderWrapper = () => {
       if (status.loading) {
         return renderLoading();
-      } else if (status.loadError) {
+      }
+      else if (status.loadError) {
         return renderOnError();
       }
       return renderDialog();
@@ -617,8 +630,8 @@ export default defineComponent({
 
       if (imgList.value.length <= 1) return;
 
-      const isDisabled =
-        !props.loop && imgIndex.value >= imgList.value.length - 1;
+      const isDisabled
+        = !props.loop && imgIndex.value >= imgList.value.length - 1;
 
       return (
         <div
@@ -633,51 +646,55 @@ export default defineComponent({
     };
 
     const renderCloseBtn = () => {
-      return slots["close-btn"] ? (
-        slots["close-btn"]({
-          close: closeModal,
-        })
-      ) : (
-        <div
-          role="button"
-          aria-label="close image preview button"
-          class={`${prefixCls}-btn-close`}
-          onClick={closeModal}
-        >
-          <SvgIcon type="close" />
-        </div>
-      );
+      return slots["close-btn"]
+        ? (
+            slots["close-btn"]({
+              close: closeModal,
+            })
+          )
+        : (
+            <div
+              role="button"
+              aria-label="close image preview button"
+              class={`${prefixCls}-btn-close`}
+              onClick={closeModal}
+            >
+              <SvgIcon type="close" />
+            </div>
+          );
     };
 
     const renderToolbar = () => {
-      return slots.toolbar ? (
-        slots.toolbar({
-          toolbarMethods: {
-            zoomIn,
-            zoomOut,
-            rotate: rotateLeft,
-            rotateLeft,
-            rotateRight,
-            resize,
-          },
-          zoomIn,
-          zoomOut,
-          rotate: rotateLeft,
-          rotateLeft,
-          rotateRight,
-          resize,
-        })
-      ) : (
-        <Toolbar
-          zoomIn={zoomIn}
-          zoomOut={zoomOut}
-          resize={resize}
-          rotateLeft={rotateLeft}
-          rotateRight={rotateRight}
-          rotateDisabled={props.rotateDisabled}
-          zoomDisabled={props.zoomDisabled}
-        />
-      );
+      return slots.toolbar
+        ? (
+            slots.toolbar({
+              toolbarMethods: {
+                zoomIn,
+                zoomOut,
+                rotate: rotateLeft,
+                rotateLeft,
+                rotateRight,
+                resize,
+              },
+              zoomIn,
+              zoomOut,
+              rotate: rotateLeft,
+              rotateLeft,
+              rotateRight,
+              resize,
+            })
+          )
+        : (
+            <Toolbar
+              zoomIn={zoomIn}
+              zoomOut={zoomOut}
+              resize={resize}
+              rotateLeft={rotateLeft}
+              rotateRight={rotateRight}
+              rotateDisabled={props.rotateDisabled}
+              zoomDisabled={props.zoomDisabled}
+            />
+          );
     };
     const renderTitle = () => {
       if (slots.title) {

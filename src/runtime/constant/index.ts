@@ -1,1 +1,1 @@
-export const prefixCls = 'dgsq'
+export const prefixCls = "dgsq";

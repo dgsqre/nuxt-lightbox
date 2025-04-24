@@ -5,6 +5,7 @@
   "repository": "your-org/my-module",
   "license": "MIT",
   "type": "module",
+  "private": false,
   "exports": {
     ".": {
       "types": "./dist/types.d.mts",
@@ -24,7 +25,6 @@
   ],
   "scripts": {
     "prepack": "nuxt-module-build build",
-    "build": "vite build",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",

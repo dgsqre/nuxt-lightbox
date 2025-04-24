@@ -1,19 +1,19 @@
-import { prefixCls } from '../constant'
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue";
+import { prefixCls } from "../constant";
 
 export const SvgIcon = defineComponent({
-  name: 'SvgIcon',
+  name: "SvgIcon",
   props: {
     type: {
       type: String,
-      default: ''
-    }
+      default: "",
+    },
   },
   setup(props) {
     return () => (
       <svg class={`${prefixCls}-icon icon`} aria-hidden="true">
         <use xlinkHref={`#icon-${props.type}`}></use>
       </svg>
-    )
-  }
-})
+    );
+  },
+});

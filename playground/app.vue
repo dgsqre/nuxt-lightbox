@@ -7,7 +7,7 @@
         class="pic"
         @click="() => onShow(idx)"
       >
-        <img :src="img.src ? img.src : img" />
+        <img :src="img.src ? img.src : img">
       </div>
     </div>
 

@@ -1,41 +1,42 @@
-import { defineComponent, PropType } from 'vue'
-import { prefixCls } from '../constant'
-import { voidFn } from '../utils'
-import { MouseEventHandler } from '../types'
+import type { PropType } from "vue";
+import { defineComponent } from "vue";
+import { prefixCls } from "../constant";
+import { voidFn } from "../utils";
+import type { MouseEventHandler } from "../types";
 
-import { SvgIcon } from './svg-icon'
+import { SvgIcon } from "./svg-icon";
 
 export const Toolbar = defineComponent({
-  name: 'Toolbar',
+  name: "Toolbar",
   props: {
     zoomIn: {
       type: Function as PropType<MouseEventHandler>,
-      default: voidFn
+      default: voidFn,
     },
     zoomOut: {
       type: Function as PropType<MouseEventHandler>,
-      default: voidFn
+      default: voidFn,
     },
     rotateLeft: {
       type: Function as PropType<MouseEventHandler>,
-      default: voidFn
+      default: voidFn,
     },
     rotateRight: {
       type: Function as PropType<MouseEventHandler>,
-      default: voidFn
+      default: voidFn,
     },
     resize: {
       type: Function as PropType<MouseEventHandler>,
-      default: voidFn
+      default: voidFn,
     },
     rotateDisabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     zoomDisabled: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   setup(props) {
     return () => {
@@ -93,7 +94,7 @@ export const Toolbar = defineComponent({
             </>
           )}
         </div>
-      )
-    }
-  }
-})
+      );
+    };
+  },
+});
