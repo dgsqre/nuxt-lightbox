@@ -1,8 +1,8 @@
 {
   "name": "@dogsquare/nuxt-lightbox",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple lightbox module for Nuxt 3",
-  "repository": "your-org/my-module",
+  "repository": "https://github.com/dgsqre/nuxt-lightbox",
   "license": "MIT",
   "type": "module",
   "private": false,
