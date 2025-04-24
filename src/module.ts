@@ -26,7 +26,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     addComponent({
       name: "VueEasyLightbox",
-      filePath: resolver.resolve("runtime/vue-easy-lightbox.tsx"),
+      filePath: resolver.resolve(componentPath),
     });
     addImportsDir(resolver.resolve("runtime/composables"));
 
