@@ -1,0 +1,27 @@
+.#{$prefix-cls}-modal {
+  z-index: 9998;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inset: 0;
+  background: var(--#{$prefix-cls}-backdrop-bg);
+  &-dialog {
+    height: 90vh;
+    width: 90vw;
+  }
+  &-content {
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--#{$prefix-cls}-modal-radius);
+    background: var(--#{$prefix-cls}-modal-bg);
+    height: 100%;
+  }
+  &-body {
+    display: flex;
+    height: 100%;
+  }
+  * {
+    box-sizing: border-box;
+  }
+}

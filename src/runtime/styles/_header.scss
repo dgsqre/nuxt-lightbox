@@ -1,0 +1,7 @@
+.#{$prefix-cls}-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--#{$prefix-cls}-header-padding);
+  border-bottom: 1px solid var(--#{$prefix-cls}-divier-color);
+}
