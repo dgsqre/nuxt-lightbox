@@ -44,6 +44,7 @@ coverage
 # Intellij idea
 *.iml
 .idea
+.vscode
 
 # OSX
 .DS_Store
