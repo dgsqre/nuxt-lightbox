@@ -1,6 +1,6 @@
 {
   "name": "@dogsquare/nuxt-lightbox",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Simple lightbox module for Nuxt 3",
   "repository": "https://github.com/dgsqre/nuxt-lightbox",
   "license": "MIT",
@@ -24,7 +24,8 @@
     "dist"
   ],
   "scripts": {
-    "prepack": "nuxt-module-build build",
+    "prepack": "nuxt-module-build",
+    "build": "nuxi build",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
@@ -50,6 +51,7 @@
     "nuxt": "^3.16.2",
     "sass": "^1.87.0",
     "typescript": "~5.8.3",
+    "unbuild": "^3.5.0",
     "vitest": "^3.1.2",
     "vue-tsc": "^2.2.8"
   }
