@@ -1,0 +1,37 @@
+.#{$prefix-cls}-icon {
+  &-close {
+    color: #fff;
+    width: 2rem;
+    height: 2rem;
+  }
+  &-prev,
+  &-next {
+    position: absolute;
+    z-index: 999;
+    color: #fff;
+    width: 5rem;
+    height: 5rem;
+  }
+  &-prev {
+    left: 0;
+  }
+  &-next {
+    right: 0;
+  }
+}
+
+.#{$prefix-cls}-modal {
+  .#{$prefix-cls}-icon-prev,
+  .#{$prefix-cls}-icon-next {
+    opacity: 0;
+    transition: opacity .25s ease-in-out;
+  }
+
+  &:hover,
+  &:focus {
+    .#{$prefix-cls}-icon-prev,
+    .#{$prefix-cls}-icon-next {
+      opacity: 1;
+    }
+  }
+}

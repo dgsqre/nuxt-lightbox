@@ -130,6 +130,10 @@
 
 .#{$prefix-cls}-btn-close {
   cursor: pointer;
+  position: absolute;
+  z-index: 999;
+  top: 1rem;
+  right: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -139,6 +143,7 @@
   min-width: 40px;
   padding: 6px;
   margin-left: auto;
+  background: rgba(255, 255, 255, .2);
   &:hover {
     background-color: var(--#{$prefix-cls}-btn-hover-bg);
   }

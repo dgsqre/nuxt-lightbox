@@ -17,6 +17,7 @@ export default createConfigForNuxt({
       "./playground",
     ],
   },
+
 })
   .append(
     // your custom flat config here...

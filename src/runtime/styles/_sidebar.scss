@@ -1,4 +1,8 @@
 .#{$prefix-cls}-sidebar {
-  width: 25rem;
-  padding: var(--#{$prefix-cls}-sidebar-padding);
+  display: flex;
+  padding: var(--#{$prefix-cls}-sidebar-padding-mobile);
+  @include media-query($media-breakpoint-lg) {
+    width: 25rem;
+    padding: var(--#{$prefix-cls}-sidebar-padding);
+  }
 }

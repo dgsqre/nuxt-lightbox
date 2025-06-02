@@ -5,8 +5,23 @@ $modal-bg: #fff !default;
 $modal-border-radius: 0.75rem !default;
 $image-wrapper-bg: #000 !default;
 $divider-color: #e0e0e0 !default;
+$sidebar-padding-mobile: 1rem !default;
 $sidebar-padding: 2rem !default;
 $header-padding-x: 2rem !default;
 $header-padding-y: 1.5rem !default;
 $btn-hover-bg: rgba(0,0,0,.07) !default;
 $btn-close-color: #000 !default;
+
+$media-breakpoint-sm: 640px !default;
+$media-breakpoint-md: 768px !default;
+$media-breakpoint-lg: 1024px !default;
+$media-breakpoint-xl: 1280px !default;
+$media-breakpoint-2xl: 1536px !default;
+
+$media-breakpoints: (
+  sm: $media-breakpoint-sm,
+  md: $media-breakpoint-md,
+  lg: $media-breakpoint-lg,
+  xl: $media-breakpoint-xl,
+  2xl: $media-breakpoint-2xl,
+) !default;

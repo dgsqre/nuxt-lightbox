@@ -5,6 +5,7 @@
   justify-content: center;
   position: relative;
   background: var(--#{$prefix-cls}-image-wrapper-bg);
+  overflow: hidden;
 }
 
 .#{$prefix-cls}-img {
